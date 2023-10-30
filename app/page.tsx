@@ -59,7 +59,7 @@ export default function Home() {
 
       <footer className="absolute bottom-0 py-3 text-center font-mono text-sm">
         <Link
-          href="https://github.com/zain-zubair/"
+          href="https://github.com/zain-zubair/computerorg"
           rel="noopener noreferrer"
           target="_blank"
           className="text-white text-opacity-30 hover:text-opacity-90 duration-300"
