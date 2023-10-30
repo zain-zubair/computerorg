@@ -1,3 +1,3 @@
 export default function CalculatorHome() {
-  <div>hello</div>;
+  return <div className="text-2xl">hello</div>;
 }
