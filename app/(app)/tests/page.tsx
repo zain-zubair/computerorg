@@ -1,23 +1,36 @@
 import TestCard from '@/components/TestCard';
+import conversions from '@/public/conversions.png';
 
 export default function TestsHome() {
   const test = [
     <TestCard
       key={1}
-      title="Conversions"
-      image=""
+      title="Numbering Systems"
+      image={conversions}
       description="Work your way through demical, binary, octal, and hex."
-      link="link"
+      link="/"
     />,
     <TestCard
       key={2}
       title="Boolean Algebra"
-      image=""
-      description=""
-      link="link"
+      image={conversions}
+      description="Practice simplifying boolean expressions."
+      link="/"
     />,
-    <TestCard key={3} title="title" image="" description="" link="link" />,
-    <TestCard key={4} title="title" image="" description="" link="link" />,
+    <TestCard
+      key={3}
+      title="Karnaugh Maps"
+      image={conversions}
+      description="Get comfortable with Kmaps."
+      link="/"
+    />,
+    <TestCard
+      key={4}
+      title="Coming soon"
+      image={conversions}
+      description=""
+      link="/"
+    />,
   ];
   return (
     <main className="flex min-h-screen flex-col p-6">
