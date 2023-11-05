@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 export default function Navbar() {
   const navItems = [
-    { label: 'Learn', href: '/' },
-    { label: 'Tests', href: '/about' },
-    { label: 'Calculator', href: '/contact' },
+    { label: 'Learn', href: '/learn' },
+    { label: 'Tests', href: '/tests' },
+    { label: 'Calculator', href: '/calculator' },
   ];
 
   return (
