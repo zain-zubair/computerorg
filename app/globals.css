@@ -52,3 +52,15 @@ body {
     /* Darker Black */
       radial-gradient(at 35% 44%, rgba(13, 58, 94, 0.6) 0px, transparent 50%); /* Darker Dark Blue */
 }
+
+.nav {
+  @apply relative ml-10 tracking-[1px] hover:text-gray-300;
+}
+
+.nav::after {
+  @apply absolute -bottom-[5px] left-0 h-[1px] w-[0%] rounded-xl bg-gray-300 duration-300  content-[''];
+}
+
+.nav:hover::after {
+  @apply w-[100%];
+}

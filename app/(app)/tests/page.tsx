@@ -38,10 +38,10 @@ export default function TestsHome() {
         <h1 className="text-2xl ">Practice Tests</h1>
         <h2>Hone your skillset with our practice tests</h2>
       </header>
-      <div className="p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-center">
-        {test.map((t) => (
+      <div className="p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {test.map((component) => (
           <div key={1} className="col-span-1 md:col-span-1 lg:col-span-1">
-            {t}
+            {component}
           </div>
         ))}
       </div>

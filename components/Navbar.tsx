@@ -1,6 +1,12 @@
 import Link from 'next/link';
 
 export default function Navbar() {
+  const navItems = [
+    { label: 'Learn', href: '/' },
+    { label: 'Tests', href: '/about' },
+    { label: 'Calculator', href: '/contact' },
+  ];
+
   return (
     <nav className="flex justify-between items-center p-4">
       <div>
@@ -8,17 +14,15 @@ export default function Navbar() {
           ComputerOrg
         </Link>
       </div>
-      <div className="">
-        <Link href="/" className="mx-4 hover:font-semibold duration-300">
-          Learn
-        </Link>
-        <Link href="/about" className="mx-4 hover:font-semibold duration-300">
-          Tests
-        </Link>
-        <Link href="/contact" className="mx-4 hover:font-semibold duration-300">
-          Calculator
-        </Link>
-      </div>
+      <ul className="flex">
+        {navItems.map((link, index) => (
+          <li key={index}>
+            <Link href={link.href} className="mx-4 nav">
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 }
