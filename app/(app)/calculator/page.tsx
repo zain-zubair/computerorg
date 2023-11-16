@@ -1,7 +1,95 @@
+'use client';
+
+import { useState } from 'react';
+import CalculatorCard from '@/components/CalculatorCard';
+import conversions from '@/public/conversions.png';
+
 export default function CalculatorHome() {
+  const calculators = [
+    <CalculatorCard
+      key={1}
+      title="Numbering Systems"
+      image={conversions}
+      description="Work your way through demical, binary, octal, and hex."
+      link="/tests/numberingSystems"
+    />,
+    <CalculatorCard
+      key={2}
+      title="Boolean Algebra"
+      image={conversions}
+      description="Practice simplifying boolean expressions."
+      link="/tests/booleanAlgebra"
+    />,
+    <CalculatorCard
+      key={3}
+      title="Karnaugh Maps"
+      image={conversions}
+      description="Get comfortable with Kmaps."
+      link="/"
+    />,
+  ];
+
   return (
-    <main className="flex min-h-screen justify-center p-6">
-      <h1 className="text-2xl p-10">To be implemented soon!</h1>
+    <main className="flex min-h-screen flex-col p-6">
+      <header className="items-center flex flex-col justify-center">
+        <h1 className="text-2xl ">Calculators</h1>
+        <h2>Confirm your answers and feel at ease</h2>
+      </header>
+      <ul className="p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {calculators.map((calculator) => (
+          <li
+            key={1}
+            className="bg-white/10 rounded-lg shadow-lg overflow-hidden group col-span-1 md:col-span-1 lg:col-span-1"
+          >
+            {calculator}
+          </li>
+        ))}
+      </ul>
     </main>
   );
 }
+
+{
+  /* Calculator for converting between bases
+  const [decimalValue, setDecimalValue] = useState('');
+  const [binaryValue, setBinaryValue] = useState('');
+  const [octalValue, setOctalValue] = useState('');
+  const [hexadecimalValue, setHexadecimalValue] = useState('');
+
+  const handleDecimalChange = (event: { target: { value: any } }) => {
+    const value = event.target.value;
+    setDecimalValue(value);
+
+    // Convert to other bases
+    if (!isNaN(value)) {
+      setBinaryValue(parseInt(value, 10).toString(2));
+      setOctalValue(parseInt(value, 10).toString(8));
+      setHexadecimalValue(parseInt(value, 10).toString(16).toUpperCase());
+      // Handle invalid input
+      setBinaryValue('Invalid input');
+      setOctalValue('Invalid input');
+      setHexadecimalValue('Invalid input');
+    }
+  };
+  */
+}
+
+/*
+{
+  <div className="">
+    <h2>Base Converter</h2>
+    <label>
+      Decimal:
+      <input
+        className="text-black"
+        type="text"
+        value={decimalValue}
+        onChange={handleDecimalChange}
+      />
+    </label>
+    <p>Binary: {binaryValue}</p>
+    <p>Octal: {octalValue}</p>
+    <p>Hexadecimal: {hexadecimalValue}</p>
+  </div>;
+}
+*/

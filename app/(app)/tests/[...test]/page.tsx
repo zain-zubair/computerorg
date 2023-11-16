@@ -2,17 +2,13 @@
 
 import { useState } from 'react';
 import * as tests from '@/content/testExports';
-import { numberToCharacter } from '@/utils/test';
+import { numberToCharacter, filler } from '@/utils/test';
 import Link from 'next/link';
 
 export default function TestsHome({ params }: { params: { test: string } }) {
   const test: string = params.test;
 
-  const questions = tests[test as keyof typeof tests] || {
-    question: '',
-    options: [],
-    answers: [],
-  };
+  const questions = tests[test as keyof typeof tests] || filler;
 
   const [selectedAnswers, setSelectedAnswers] = useState(
     Array(questions.length).fill('')
@@ -62,6 +58,7 @@ export default function TestsHome({ params }: { params: { test: string } }) {
                     onChange={() =>
                       handleOptionSelect(index, numberToCharacter(optionIndex))
                     }
+                    className="mr-1"
                   />
                   {option}
                 </label>
