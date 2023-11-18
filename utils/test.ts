@@ -31,3 +31,10 @@ export function flipBits(number: string, type: string): number {
     );
   }
 }
+
+export function parseInput(input: string): { number: string; base: number } {
+  const number = input.slice(0, input.indexOf(')'));
+  const base = parseInt(input.slice(input.indexOf(')') + 1));
+
+  return { number, base };
+}

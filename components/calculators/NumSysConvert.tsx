@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { checkSignBit, flipBits } from '@/utils/test';
+import { checkSignBit, flipBits, parseInput } from '@/utils/test';
 
 const NumSysConvert = () => {
   const [outputBase, setOutputBase] = useState('');
@@ -41,10 +41,7 @@ const NumSysConvert = () => {
       return;
     }
 
-    const number = input.slice(0, input.indexOf(')'));
-    const base = parseInt(input.slice(input.indexOf(')') + 1));
-
-    const numberInDecimal = parseInt(number, base);
+    const { number, base } = parseInput(input);
 
     let final;
     switch (conversionType) {
@@ -63,7 +60,7 @@ const NumSysConvert = () => {
 
       case 'unsigned':
       default:
-        final = numberInDecimal.toString(parseInt(outputBase));
+        final = parseInt(number, base).toString(parseInt(outputBase));
         break;
     }
 
