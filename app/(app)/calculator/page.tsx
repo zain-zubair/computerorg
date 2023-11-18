@@ -1,34 +1,6 @@
-'use client';
-
-import { useState } from 'react';
-import CalculatorCard from '@/components/CalculatorCard';
-import conversions from '@/public/conversions.png';
+import { calculators } from '@/content/calculatorCards';
 
 export default function CalculatorHome() {
-  const calculators = [
-    <CalculatorCard
-      key={1}
-      title="Numbering Systems"
-      image={conversions}
-      description="Work your way through demical, binary, octal, and hex."
-      link="/tests/numberingSystems"
-    />,
-    <CalculatorCard
-      key={2}
-      title="Boolean Algebra"
-      image={conversions}
-      description="Practice simplifying boolean expressions."
-      link="/tests/booleanAlgebra"
-    />,
-    <CalculatorCard
-      key={3}
-      title="Karnaugh Maps"
-      image={conversions}
-      description="Get comfortable with Kmaps."
-      link="/"
-    />,
-  ];
-
   return (
     <main className="flex min-h-screen flex-col p-6">
       <header className="items-center flex flex-col justify-center">

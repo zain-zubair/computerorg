@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import * as tests from '@/content/testExports';
 import { numberToCharacter, filler } from '@/utils/test';
 import Link from 'next/link';
+import * as tests from '@/content/testExports';
 
 export default function TestsHome({ params }: { params: { test: string } }) {
   const test: string = params.test;
