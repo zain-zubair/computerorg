@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { checkSign } from '@/utils/test';
+import { checkSignBit } from '@/utils/test';
 
 const NumSysConvert = () => {
   const [outputBase, setOutputBase] = useState('');
@@ -26,6 +26,21 @@ const NumSysConvert = () => {
   };
 
   const convertNumber = () => {
+    if (input.trim() === '') {
+      alert('Please enter a valid input');
+      return;
+    }
+
+    if (
+      outputBase.trim() === '' ||
+      isNaN(parseInt(outputBase)) ||
+      parseInt(outputBase) < 2 ||
+      parseInt(outputBase) > 36
+    ) {
+      alert('Please enter a valid output base');
+      return;
+    }
+
     const number = input.slice(0, input.indexOf(')'));
     const base = parseInt(input.slice(input.indexOf(')') + 1));
 
@@ -40,7 +55,7 @@ const NumSysConvert = () => {
           .map((bit) => (bit === '0' ? '1' : '0'))
           .join('');
         final = (
-          parseInt(invertedBinary1sComplement, 2) * checkSign(number)
+          parseInt(invertedBinary1sComplement, 2) * checkSignBit(number)
         ).toString(parseInt(outputBase));
         break;
 
@@ -53,14 +68,14 @@ const NumSysConvert = () => {
         const twosComplement = (
           parseInt(invertedBinary2sComplement, 2) + 1
         ).toString(2);
-        final = (parseInt(twosComplement, 2) * checkSign(number)).toString(
+        final = (parseInt(twosComplement, 2) * checkSignBit(number)).toString(
           parseInt(outputBase)
         );
         break;
 
       case 'signMagnitude':
         const trimmed = parseInt(number.slice(1), 2);
-        final = (Math.abs(trimmed) * checkSign(number)).toString(
+        final = (Math.abs(trimmed) * checkSignBit(number)).toString(
           parseInt(outputBase)
         );
         break;
@@ -71,7 +86,7 @@ const NumSysConvert = () => {
         break;
     }
 
-    setConvertedNumber(final);
+    setConvertedNumber(final === 'NaN' ? 'Invalid input' : final);
   };
 
   return (

@@ -9,6 +9,6 @@ export const filler = {
   answers: [],
 };
 
-export function checkSign(number: string): number {
+export function checkSignBit(number: string): number {
   return number.toString()[0] == '1' ? -1 : 1;
 }
