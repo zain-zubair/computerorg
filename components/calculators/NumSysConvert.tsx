@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { checkSignBit } from '@/utils/test';
+import { checkSignBit, flipBits } from '@/utils/test';
 
 const NumSysConvert = () => {
   const [outputBase, setOutputBase] = useState('');
@@ -45,32 +45,14 @@ const NumSysConvert = () => {
     const base = parseInt(input.slice(input.indexOf(')') + 1));
 
     const numberInDecimal = parseInt(number, base);
+    console.log(number, numberInDecimal);
 
     let final;
     switch (conversionType) {
       case '1sComplement':
-        const binary1sComplement = (numberInDecimal >>> 0).toString(2);
-        const invertedBinary1sComplement = binary1sComplement
-          .split('')
-          .map((bit) => (bit === '0' ? '1' : '0'))
-          .join('');
-        final = (
-          parseInt(invertedBinary1sComplement, 2) * checkSignBit(number)
-        ).toString(parseInt(outputBase));
-        break;
-
       case '2sComplement':
-        const binary2sComplement = (numberInDecimal >>> 0).toString(2);
-        const invertedBinary2sComplement = binary2sComplement
-          .split('')
-          .map((bit) => (bit === '0' ? '1' : '0'))
-          .join('');
-        const twosComplement = (
-          parseInt(invertedBinary2sComplement, 2) + 1
-        ).toString(2);
-        final = (parseInt(twosComplement, 2) * checkSignBit(number)).toString(
-          parseInt(outputBase)
-        );
+        const flipped = flipBits(number, conversionType);
+        final = (flipped * checkSignBit(number)).toString(parseInt(outputBase));
         break;
 
       case 'signMagnitude':
