@@ -45,7 +45,6 @@ const NumSysConvert = () => {
     const base = parseInt(input.slice(input.indexOf(')') + 1));
 
     const numberInDecimal = parseInt(number, base);
-    console.log(number, numberInDecimal);
 
     let final;
     switch (conversionType) {
@@ -91,6 +90,7 @@ const NumSysConvert = () => {
             className="px-3 py-1 font-mono bg-black outline-none border-b-2 border-white/25 hover:border-white/40 focus:border-white/80"
             value={conversionType}
             onChange={handleConversionTypeChange}
+            disabled={input.slice(input.indexOf(')') + 1) !== '2'}
           >
             <option value="unsigned">Unsigned</option>
             <option value="1sComplement">1&apos;s Complement</option>
