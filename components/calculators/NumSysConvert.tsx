@@ -107,8 +107,13 @@ const NumSysConvert = () => {
         >
           Convert
         </button>
-
-        <div className="text-white mt-4">{convertedNumber}</div>
+        <div className="text-white mt-4 flex items-center justify-center">
+          {convertedNumber && (
+            <div className="border-2 border-white px-3 py-1 rounded-md border-white/25">
+              {convertedNumber}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
