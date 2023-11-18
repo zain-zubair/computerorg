@@ -8,3 +8,8 @@ export const filler = {
   options: [],
   answers: [],
 };
+
+export function checkSign(number: string): number {
+  console.log(number, number.toString()[0]);
+  return number.toString()[0] == '1' ? -1 : 1;
+}
