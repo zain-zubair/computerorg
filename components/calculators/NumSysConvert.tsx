@@ -83,17 +83,29 @@ const NumSysConvert = () => {
             value={outputBase}
             onChange={handleOutputBaseChange}
           />
-          <select
-            className="px-3 py-1 font-mono bg-black outline-none border-b-2 border-white/25 hover:border-white/40 focus:border-white/80"
-            value={conversionType}
-            onChange={handleConversionTypeChange}
-            disabled={input.slice(input.indexOf(')') + 1) !== '2'}
-          >
-            <option value="unsigned">Unsigned</option>
-            <option value="1sComplement">1&apos;s Complement</option>
-            <option value="2sComplement">2&apos;s Complement</option>
-            <option value="signMagnitude">Sign and Magnitude</option>
-          </select>
+          <div className="relative">
+            <select
+              className="peer px-3 py-1 font-mono bg-black outline-none border-b-2 border-white/25 hover:border-white/40 focus:border-white/80"
+              value={conversionType}
+              data-tooltip-target="tooltip-default"
+              onChange={handleConversionTypeChange}
+              disabled={input.slice(input.indexOf(')') + 1) !== '2'}
+            >
+              <option value="unsigned">Unsigned</option>
+              <option value="1sComplement">1&apos;s Complement</option>
+              <option value="2sComplement">2&apos;s Complement</option>
+              <option value="signMagnitude">Sign and Magnitude</option>
+            </select>
+            <p
+              className={`${
+                input.slice(input.indexOf(')') + 1) !== '2'
+                  ? 'peer-hover:visible peer-hover:opacity-100 absolute left-[100%] top-0 transition-opacity ease-in duration-300'
+                  : 'hidden'
+              } duration-300 ml-5 opacity-0 font-mono invisible text-sm text-white/80`}
+            >
+              Other conversion types only available for binary inputs.
+            </p>
+          </div>
         </div>
         <button
           onClick={convertNumber}
