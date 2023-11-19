@@ -83,7 +83,7 @@ const NumSysConvert = () => {
             value={outputBase}
             onChange={handleOutputBaseChange}
           />
-          <div className="relative">
+          <div className="relative flex">
             <select
               className="peer px-3 py-1 font-mono bg-black outline-none border-b-2 border-white/25 hover:border-white/40 focus:border-white/80"
               value={conversionType}
@@ -109,7 +109,7 @@ const NumSysConvert = () => {
         </div>
         <button
           onClick={convertNumber}
-          className="text-white/30 py-2 px-4 mt-4 rounded-md border-2 border-white/25 hover:border-white/40 hover:text-white/40 active:border-white/80"
+          className="text-white/30 py-2 px-4 mt-4 rounded-md border-2 border-white/25 hover:border-white/40 hover:text-white/40 active:border-white/80 active:text-white/70"
         >
           Convert
         </button>
