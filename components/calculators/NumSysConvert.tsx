@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { checkSignBit, flipBits, parseInput } from '@/utils/test';
+import NumSysHelp from './NumSysHelp';
 
 const NumSysConvert = () => {
   const [outputBase, setOutputBase] = useState('');
@@ -68,7 +69,7 @@ const NumSysConvert = () => {
   };
 
   return (
-    <div className="flex items-center justify-center p-10">
+    <div className="flex flex-col items-center justify-center p-10">
       <div className="flex flex-col border-[0] border-white/10 p-8 rounded-lg shadow-md">
         <div className="flex gap-4 text-sm">
           <input
@@ -121,6 +122,8 @@ const NumSysConvert = () => {
           )}
         </div>
       </div>
+
+      <NumSysHelp />
     </div>
   );
 };
