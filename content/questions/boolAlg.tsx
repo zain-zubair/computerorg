@@ -1,8 +1,4 @@
-interface Question {
-  question: string;
-  options: string[];
-  answers: string[];
-}
+import Question from '@/types/question';
 
 export const questions: Question[] = [
   {

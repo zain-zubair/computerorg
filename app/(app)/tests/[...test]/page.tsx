@@ -2,14 +2,14 @@
 
 import { useState } from 'react';
 import { numberToCharacter, filler } from '@/utils/test';
+// import Timer from '@/components/Timer';
 import Link from 'next/link';
 import * as tests from '@/content/testExports';
+import Test from '@/components/Test';
 
 export default function TestsHome({ params }: { params: { test: string } }) {
   const test: string = params.test;
-
   const questions = tests[test as keyof typeof tests] || filler;
-
   const [selectedAnswers, setSelectedAnswers] = useState(
     Array(questions.length).fill('')
   );
@@ -35,13 +35,42 @@ export default function TestsHome({ params }: { params: { test: string } }) {
     <div className="flex min-h-screen flex-col p-6">
       <header className="items-center flex flex-col justify-center">
         <h1 className="text-2xl ">Practice Tests</h1>
-        <h2 className="text-center">
-          Please note, these tests are just place holders at the moment. <br />
-          The real tests will be implemented soon!
-        </h2>
       </header>
 
-      <ol className="ml-10 mt-10">
+      <Test test={test} questions={questions} />
+    </div>
+  ) : (
+    <div className="flex justify-center p-6">
+      <p className="text-center">
+        The test you are looking for does not exist.
+        <br />
+        Please return back to our test page
+        <Link href={'/tests'} className="text-blue-300">
+          {' '}
+          here
+        </Link>
+        .
+      </p>
+    </div>
+  );
+}
+
+{
+  /*
+  <section className="grid grid-cols-5 gap-4">
+        <nav className="border-r border-white/25">
+          <h1>{test}</h1>
+        </nav>
+        <div className="col-span-4">
+          <div className="flex justify-between">
+            <div>questions</div>
+            <div>Timer</div>
+          </div>
+        </div>
+      </section>
+  */
+  /*
+  <ol className="ml-10 mt-10">
         {questions.map((question, index) => (
           <li key={index} className="mb-5">
             <p className="mb-1 text-lg font-semibold ">{question.question}</p>
@@ -68,20 +97,8 @@ export default function TestsHome({ params }: { params: { test: string } }) {
         ))}
       </ol>
 
-      <button onClick={handleSubmission}>Submit</button>
-    </div>
-  ) : (
-    <div className="flex justify-center p-6">
-      <p className="text-center">
-        The test you are looking for does not exist.
-        <br />
-        Please return back to our test page
-        <Link href={'/tests'} className="text-blue-300">
-          {' '}
-          here
-        </Link>
-        .
-      </p>
-    </div>
-  );
+      <button className="interactive" onClick={handleSubmission}>
+        Submit
+      </button>
+  */
 }

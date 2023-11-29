@@ -64,3 +64,7 @@ body {
 .nav:hover::after {
   @apply w-[100%];
 }
+
+.interactive {
+  @apply px-3 py-1 font-mono bg-black outline-none border-b-2 border-white/25 hover:border-white/40 focus:border-white/80;
+}
