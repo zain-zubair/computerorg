@@ -1,3 +1,4 @@
+import NumSysConvert from '@/components/calculators/NumSysConvert';
 import Question from '@/types/question';
 
 export function numberToCharacter(number: number): string {
@@ -43,4 +44,22 @@ export function parseInput(input: string): { number: string; base: number } {
 
 export function randomizeQuestions(array: Question[]) {
   return array.sort(() => Math.random() - 0.5);
+}
+
+export function getNameFromSlug(name: string) {
+  const names: { [key: string]: string } = {
+    numberingSystems: 'Base Converter',
+    booleanAlgebra: 'Logic Simplifier',
+  };
+
+  return names[name] ? names[name] : false;
+}
+
+export function getCalcFromSlug(name: string) {
+  const names: { [key: string]: JSX.Element } = {
+    numberingSystems: <NumSysConvert />,
+    booleanAlgebra: <></>,
+  };
+
+  return names[name] ? names[name] : false;
 }
