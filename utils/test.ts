@@ -1,3 +1,5 @@
+import Question from '@/types/question';
+
 export function numberToCharacter(number: number): string {
   // 65 is the ASCII code for 'A'
   return String.fromCharCode(65 + number);
@@ -37,4 +39,8 @@ export function parseInput(input: string): { number: string; base: number } {
   const base = parseInt(input.slice(input.indexOf(')') + 1));
 
   return { number, base };
+}
+
+export function randomizeQuestions(array: Question[]) {
+  return array.sort(() => Math.random() - 0.5);
 }

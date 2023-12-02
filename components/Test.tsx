@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import Question from '@/types/question';
 import { numberToCharacter } from '@/utils/test';
-import Link from 'next/link';
 import DetailedView from './DetailedView';
+import Question from '@/types/question';
+import Link from 'next/link';
 
 const Test = ({ test, questions }: { test: string; questions: Question[] }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
