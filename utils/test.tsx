@@ -46,20 +46,11 @@ export function randomizeQuestions(array: Question[]) {
   return array.sort(() => Math.random() - 0.5);
 }
 
-export function getNameFromSlug(name: string) {
-  const names: { [key: string]: string } = {
-    numberingSystems: 'Base Converter',
-    booleanAlgebra: 'Logic Simplifier',
+export function getItemsFromSlug(name: string) {
+  const names: { [key: string]: { title: string; calc: JSX.Element } } = {
+    numberingSystems: { title: 'Base Converter', calc: <NumSysConvert /> },
+    booleanAlgebra: { title: 'Logic Simplifier', calc: <></> },
   };
 
-  return names[name] ? names[name] : false;
-}
-
-export function getCalcFromSlug(name: string) {
-  const names: { [key: string]: JSX.Element } = {
-    numberingSystems: <NumSysConvert />,
-    booleanAlgebra: <></>,
-  };
-
-  return names[name] ? names[name] : false;
+  return names[name] || false;
 }
