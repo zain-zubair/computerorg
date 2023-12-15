@@ -47,9 +47,15 @@ export function randomizeQuestions(array: Question[]) {
 }
 
 export function getItemsFromSlug(name: string) {
-  const names: { [key: string]: { title: string; calc: JSX.Element } } = {
-    numberingSystems: { title: 'Base Converter', calc: <NumSysConvert /> },
-    booleanAlgebra: { title: 'Logic Simplifier', calc: <></> },
+  const names: {
+    [key: string]: { test: string; title: string; calc: JSX.Element };
+  } = {
+    numberingSystems: {
+      test: 'Numbering Systems',
+      title: 'Base Converter',
+      calc: <NumSysConvert />,
+    },
+    booleanAlgebra: { test: '', title: 'Logic Simplifier', calc: <></> },
   };
 
   return names[name] || false;

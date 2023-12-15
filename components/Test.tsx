@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { numberToCharacter } from '@/utils/test';
+import { getItemsFromSlug, numberToCharacter } from '@/utils/test';
 import DetailedView from './DetailedView';
 import Question from '@/types/question';
 import Link from 'next/link';
@@ -32,7 +32,7 @@ const Test = ({ test, questions }: { test: string; questions: Question[] }) => {
   return (
     <section className="flex min-h-screen">
       <nav className="hidden md:flex flex-col items-center pr-6 border-r-2 border-white/25">
-        <h1>{test}</h1>
+        <h1>{getItemsFromSlug(test).test}</h1>
         <div className="pt-6 flex flex-col items-center">
           {questions.map((_, index) => (
             <div
@@ -83,7 +83,7 @@ const Test = ({ test, questions }: { test: string; questions: Question[] }) => {
               <div className="flex flex-col md:pl-6 pt-6">
                 {questions[currentQuestion].options.map(
                   (option, optionIndex) => (
-                    <label key={optionIndex}>
+                    <label key={optionIndex} className="flex items-center">
                       <input
                         type="radio"
                         value={numberToCharacter(optionIndex)}
@@ -97,6 +97,7 @@ const Test = ({ test, questions }: { test: string; questions: Question[] }) => {
                             numberToCharacter(optionIndex)
                           )
                         }
+                        className="mr-2"
                       />
                       {option}
                     </label>
