@@ -15,7 +15,7 @@ const TopicList = () => {
   return (
     <div className="p-10 flex flex-col items-center">
       <input
-        className="px-3 py-1 font-mono bg-black outline-none border-b-2 border-white/25 hover:border-white/40 focus:border-white/80 mb-4"
+        className="px-3 py-1 font-mono outline-none border-b-2 border-white/25 hover:border-white/40 focus:border-white/80 mb-4"
         placeholder="Search topics..."
         type="text"
         onChange={(e) => setSearch(e.target.value)}
