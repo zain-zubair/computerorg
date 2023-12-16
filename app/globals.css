@@ -44,11 +44,11 @@ body {
 }
 
 .nav {
-  @apply relative ml-10 tracking-[1px] hover:text-gray-300;
+  @apply relative ml-10 tracking-[1px] hover:text-Slate-lightest;
 }
 
 .nav::after {
-  @apply absolute -bottom-[5px] left-0 h-[1px] w-[0%] rounded-xl bg-gray-300 duration-300  content-[''];
+  @apply absolute -bottom-[5px] left-0 h-[1px] w-[0%] rounded-xl bg-Slate-lightest duration-300  content-[''];
 }
 
 .nav:hover::after {
