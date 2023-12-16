@@ -11,7 +11,7 @@ export default function CalculatorHome() {
         {calculators.map((calculator) => (
           <li
             key={1}
-            className="bg-white/10 rounded-lg shadow-lg overflow-hidden group col-span-1 md:col-span-1 lg:col-span-1"
+            className="bg-Navy-light rounded-lg shadow-lg overflow-hidden group col-span-1 md:col-span-1 lg:col-span-1"
           >
             {calculator}
           </li>

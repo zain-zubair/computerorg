@@ -122,7 +122,7 @@ const Test = ({ test, questions }: { test: string; questions: Question[] }) => {
                       onClick={() => {
                         setShowConfirmButton(true);
                       }}
-                      className="mt-4 px-4 py-2 interactive active:border-white/80"
+                      className="mt-4 px-4 py-1 bg-Navy-light rounded-md shadow hover:text-Slate-lightest duration-300 active:border-white/80"
                     >
                       Next
                     </button>
@@ -134,7 +134,7 @@ const Test = ({ test, questions }: { test: string; questions: Question[] }) => {
                           );
                           setShowConfirmButton(false);
                         }}
-                        className="mt-4 ml-4 px-4 py-2 interactive active:border-white/80"
+                        className="mt-4 ml-4 px-4 py-1 bg-Navy-light rounded-md shadow hover:text-Slate-lightest duration-300 active:border-white/80"
                       >
                         Confirm
                       </button>

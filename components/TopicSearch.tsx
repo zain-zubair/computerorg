@@ -12,10 +12,12 @@ const TopicList = () => {
       topic.props.description.toLowerCase().includes(search)
   );
 
+  // TODO: Add estimated time for completion to card
+
   return (
-    <div className="p-10 flex flex-col items-center">
+    <div className="p-10 flex flex-col items-center focus:ring-none">
       <input
-        className="px-3 py-1 font-mono outline-none border-b-2 border-white/25 hover:border-white/40 focus:border-white/80 mb-4"
+        className="px-3 py-1 mb-4 bg-Navy-light outline-none rounded-md shadow-lg hover:ring-1 focus:ring-2 ring-Slate transition-all duration-300"
         placeholder="Search topics..."
         type="text"
         onChange={(e) => setSearch(e.target.value)}
@@ -24,7 +26,7 @@ const TopicList = () => {
         {filteredTopics.map((topic, index) => (
           <li
             key={index}
-            className="bg-white/10 rounded-lg shadow-lg overflow-hidden group col-span-1 md:col-span-1 lg:col-span-1"
+            className="bg-Navy-light rounded-lg shadow-lg overflow-hidden group col-span-1 md:col-span-1 lg:col-span-1"
           >
             {topic}
           </li>
@@ -35,14 +37,3 @@ const TopicList = () => {
 };
 
 export default TopicList;
-
-{
-  /*
-<input
-    type="text"
-    placeholder="Search topics..."
-    onChange={(e) => setSearchTerm(e.target.value)}
-    className="p-2 mb-4 border rounded bg-black interactive"
-/>
-  */
-}

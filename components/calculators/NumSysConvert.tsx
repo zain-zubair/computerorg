@@ -70,56 +70,54 @@ const NumSysConvert = () => {
 
   return (
     <div className="flex flex-col items-center justify-center p-10">
-      <div className="flex flex-col border-[0] border-white/10 p-8 rounded-lg shadow-md">
-        <div className="flex gap-4 text-sm">
-          <input
-            className="grow px-3 py-1 font-mono bg-black outline-none border-b-2 border-white/25 hover:border-white/40 focus:border-white/80"
-            placeholder="eg. 1101)2"
-            value={input}
-            onChange={handleInputChange}
-          />
-          <input
-            className="w-[4rem] text-center px-3 py-1 font-mono bg-black outline-none border-b-2 border-white/25 hover:border-white/40 focus:border-white/80"
-            placeholder="Base"
-            value={outputBase}
-            onChange={handleOutputBaseChange}
-          />
+      <div className="flex flex-col p-6 md:p-8 rounded-lg bg-Navy-light/30 shadow-md">
+        <div className="flex flex-col md:flex-row gap-2 text-sm">
+          <div className="flex-1">
+            <input
+              className="w-full px-3 py-1 font-mono bg-Navy-light outline-none rounded-md hover:ring-1 focus:ring-2 ring-Slate transition-all duration-300"
+              placeholder="e.g. 1101)2"
+              value={input}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="w-full md:w-[4rem]">
+            <input
+              className="w-full md:text-center px-3 py-1 font-mono bg-Navy-light outline-none rounded-md hover:ring-1 focus:ring-2 ring-Slate transition-all duration-300"
+              placeholder="Base"
+              value={outputBase}
+              onChange={handleOutputBaseChange}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 mt-2 md:mt-4 text-sm">
           <div className="relative flex">
             <select
-              className="peer px-3 py-1 font-mono bg-black outline-none border-b-2 border-white/25 hover:border-white/40 focus:border-white/80"
+              className="w-full px-3 py-1 font-mono bg-Navy-light outline-none rounded-md hover:ring-1 focus:ring-2 ring-Slate transition-all duration-300"
               value={conversionType}
-              data-tooltip-target="tooltip-default"
               onChange={handleConversionTypeChange}
-              disabled={input.slice(input.indexOf(')') + 1) !== '2'}
+              disabled={input.slice(input.indexOf(')') + 1) !== '2'} // disable if input is not in binary form
             >
               <option value="unsigned">Unsigned</option>
               <option value="1sComplement">1&apos;s Complement</option>
               <option value="2sComplement">2&apos;s Complement</option>
               <option value="signMagnitude">Sign and Magnitude</option>
             </select>
-            <p
-              className={`${
-                input.slice(input.indexOf(')') + 1) !== '2'
-                  ? 'peer-hover:visible peer-hover:opacity-100 absolute left-[100%] top-0 transition-opacity ease-in duration-300'
-                  : 'hidden'
-              } duration-300 ml-5 opacity-0 font-mono invisible text-sm text-white/80`}
-            >
-              Other conversion types only available for binary inputs.
-            </p>
           </div>
-        </div>
-        <button
-          onClick={convertNumber}
-          className="text-white/30 py-2 px-4 mt-4 rounded-md border-2 border-white/25 hover:border-white/40 hover:text-white/40 active:border-white/80 active:text-white/70"
-        >
-          Convert
-        </button>
-        <div className="text-white mt-4 flex items-center justify-center">
-          {convertedNumber && (
-            <div className="border-2 border-white px-3 py-1 rounded-md border-white/25">
-              {convertedNumber}
+
+          <div className="flex flex-col md:flex-row gap-2 md:gap-0 text-sm">
+            <div className="flex-1 w-full max-w-[300px] px-3 py-1 font-mono bg-Navy-lightest rounded-md md:rounded-r-none overflow-x-auto whitespace-nowrap">
+              {convertedNumber || 'Output'}
             </div>
-          )}
+            <div className="w-full md:w-[4rem]">
+              <button
+                onClick={convertNumber}
+                className="w-full px-3 py-1 font-mono bg-Navy-light font-semibold rounded-md md:rounded-l-none  hover:ring-1 focus:ring-2 ring-Slate transition-all duration-300"
+              >
+                Calc
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -129,3 +127,17 @@ const NumSysConvert = () => {
 };
 
 export default NumSysConvert;
+
+{
+  /*
+<p
+  className={`${
+    input.slice(input.indexOf(')') + 1) !== '2'
+      ? 'md:visible md:opacity-100 absolute left-full top-0 transition-opacity ease-in duration-300'
+      : 'hidden'
+  } duration-300 ml-5 md:ml-0 opacity-0 font-mono invisible text-sm text-white/80`}
+>
+  Other conversion types only available for binary inputs.
+</p>;
+  */
+}
