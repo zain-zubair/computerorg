@@ -59,13 +59,15 @@ const Test = ({ test, questions }: { test: string; questions: Question[] }) => {
               </p>
               <div className="mt-4">
                 <button
-                  className="px-4 mr-4 py-2 interactive active:border-white/80"
+                  className="mr-4 px-4 py-1 bg-Navy-light rounded-md shadow duration-300 hover:text-Slate-lightest hover:ring-1 active:ring-2 ring-Slate transition-all"
                   onClick={() => setDetailedViewVisible(!detailedViewVisible)}
                 >
                   Detailed View
                 </button>
                 <Link href={'/tests'}>
-                  <button className="px-4 py-2 interactive">Return</button>
+                  <button className="px-4 py-1 bg-Navy-light rounded-md shadow duration-300 hover:text-Slate-lightest hover:ring-1 active:ring-2 ring-Slate transition-all">
+                    Return
+                  </button>
                 </Link>
               </div>
               {detailedViewVisible && (
@@ -108,7 +110,7 @@ const Test = ({ test, questions }: { test: string; questions: Question[] }) => {
                 {isLastQuestion ? (
                   <>
                     <button
-                      className="mt-4 px-4 py-2 interactive focus:border-white/40 active:border-white/80"
+                      className="mt-4 px-4 py-1 bg-Navy-light rounded-md shadow duration-300 hover:text-Slate-lightest hover:ring-1 focus:ring-2 ring-Slate transition-all"
                       onClick={() => {
                         setIsTestSubmitted(true);
                       }}
@@ -122,7 +124,7 @@ const Test = ({ test, questions }: { test: string; questions: Question[] }) => {
                       onClick={() => {
                         setShowConfirmButton(true);
                       }}
-                      className="mt-4 px-4 py-1 bg-Navy-light rounded-md shadow hover:text-Slate-lightest duration-300 active:border-white/80"
+                      className="mt-4 px-4 py-1 bg-Navy-light rounded-md shadow duration-300 hover:text-Slate-lightest hover:ring-1 focus:ring-2 ring-Slate transition-all"
                     >
                       Next
                     </button>
@@ -134,7 +136,7 @@ const Test = ({ test, questions }: { test: string; questions: Question[] }) => {
                           );
                           setShowConfirmButton(false);
                         }}
-                        className="mt-4 ml-4 px-4 py-1 bg-Navy-light rounded-md shadow hover:text-Slate-lightest duration-300 active:border-white/80"
+                        className="mt-4 ml-4 px-4 py-1 bg-Navy-light rounded-md shadow duration-300 hover:text-Slate-lightest hover:ring-1 focus:ring-2 ring-Slate transition-all"
                       >
                         Confirm
                       </button>
