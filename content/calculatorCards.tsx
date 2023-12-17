@@ -1,4 +1,4 @@
-import CalculatorCard from '@/components/CalculatorCard';
+import CalculatorCard from '@/components/cards/CalculatorCard';
 import conversions from '@/public/conversions.png';
 
 export const calculators = [

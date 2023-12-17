@@ -19,7 +19,9 @@ const TestCard: React.FC<TestProps> = ({ title, image, description, link }) => {
           alt={title}
         />
         <div className="p-4">
-          <h2 className="text-lg font-bold mb-1">{title}</h2>
+          <h2 className="text-lg font-bold mb-1 group-hover:text-Green duration-300 transition-colors">
+            {title}
+          </h2>
           <p className="opacity-50 text-base mb-1 group-hover:opacity-90 duration-300 transition-opacity">
             {description}
           </p>

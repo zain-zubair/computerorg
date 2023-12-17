@@ -1,4 +1,4 @@
-import TestCard from '@/components/TestCard';
+import TestCard from '@/components/cards/TestCard';
 import conversions from '@/public/conversions.png';
 
 export const tests = [

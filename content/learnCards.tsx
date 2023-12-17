@@ -1,4 +1,4 @@
-import LearnCard from '@/components/LearnCard';
+import LearnCard from '@/components/cards/LearnCard';
 
 export const learnTopics = [
   <LearnCard
