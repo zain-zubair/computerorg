@@ -1,7 +1,6 @@
 import Header from '@/components/Header';
 import NotFound from '@/components/NotFound';
 import { getItemsFromSlug } from '@/utils/test';
-import Link from 'next/link';
 
 export default function Calculator({
   params,

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { redirect } from 'next/dist/server/api-utils';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,10 +13,13 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="relative flex flex-wrap items-center justify-between p-4">
-      <div className="mr-6 z-40 flex items-center flex-shrink-0">
+    <nav className="p-3 sm:p-4 z-50 sticky top-0 left-0 right-0 bg-Navy flex flex-wrap items-center justify-between shadow-sm">
+      <div className="group mr-6 z-40 flex items-center flex-shrink-0">
         <Link href="/" className="text-lg font-semibold">
-          ComputerOrg
+          <span className="group-hover:text-Green duration-300 transition-colors">
+            Computer
+          </span>
+          Org
         </Link>
       </div>
       <div className="block sm:hidden z-40">
@@ -54,9 +58,13 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
-      <div className="hidden sm:flex">
+      <div className="hidden sm:flex gap-8">
         {navItems.map((link, index) => (
-          <Link key={index} href={link.href} className="nav">
+          <Link
+            key={index}
+            href={link.href}
+            className="font-mono hover:text-Green duration-300 transition-colors"
+          >
             {link.label}
           </Link>
         ))}
